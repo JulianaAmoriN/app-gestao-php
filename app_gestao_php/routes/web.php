@@ -29,17 +29,10 @@ Route::prefix('/app')->group(function(){
     
 });
 
-Route::get('/rota1', function(){
-    echo 'rota 1';
-})->name('site.rota1');
-
-//Route::redirect('rota2', 'rota1');
-Route::get('/rota2', function(){
-    //é uma boa pratica colocar o redirect dentro do controller;
-    return redirect()->route('site.route1');
-})->name('site.rota2');
+Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('teste');
 
 //Route de fallback
 Route::fallback(function(){
     echo ' A rota acessada não existe. <a href="'.route('site.index').'">Clique aqui</a> para retornar a página incial.';
 });
+
