@@ -18,7 +18,3 @@ Route::get('/', 'PrincipalController@principal');
 Route::get('/sobre-nos', 'SobreNosController@sobreNos');
 
 Route::get('/contato', 'ContatoController@contato');
-
-Route::get('/contato/{nome}/{num_id}', function(string $nome, int $num_id = 1){
-    echo 'estamos aqui '.$nome.' '.$num_id;
-})->where('num_id', '[0-9]+')->where('nome', '[A-Za-z]+');
