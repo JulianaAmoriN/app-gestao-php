@@ -11,6 +11,9 @@ teste teste
     /*
         comentário com mais de uma linha 
     */
+
+   $oi;
+    
 @endphp
 
 <br>
@@ -33,7 +36,9 @@ teste teste
 {{-- @unless executa se o retorno for false, similar ao If(!<condição>){} --}}
 Fornecedor: {{$fornecedores[0]['nome']}}
 Status: {{$fornecedores[0]['status']}}
+CNPJ: {{$fornecedores[0]['cnpj']}}
 
+<br>
 @if(!($fornecedores[0]['status'] == 'n'))
     Fornecedor está ativo.
 @endif
@@ -41,3 +46,25 @@ Status: {{$fornecedores[0]['status']}}
 @unless($fornecedores[0]['status'] == 'n')
     Fornecedor está ativo
 @endunless
+
+<br>
+@isset($oi)
+    variável $oi recebeu um valor {{--retorna a existencia de uma variável @isset--}}
+@endisset
+
+<br>
+{{--
+    @empty verifica se a variável está vazia 
+    - ''
+    - 0
+    - 0.0
+    - null
+    - false
+    - array()
+    - $var
+--}}
+@empty($oi)
+$oi foi declarado mas não recebeu nenhum valor 
+@endempty
+
+
