@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class FornecedorController extends Controller
 {
     public function index(){
-        $fornecedores =['Fornecedores 1'];
+        $fornecedores =[ 0=> ['nome'=>'Fornecedores 1', 'status'=> 's']];
         return view('app.fornecedor.index', compact('fornecedores'));
     }
 }
