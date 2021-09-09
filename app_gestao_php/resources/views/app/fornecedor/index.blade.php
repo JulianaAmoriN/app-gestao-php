@@ -120,15 +120,26 @@ $oi foi declarado mas não recebeu nenhum valor
     @endforeach
 @endisset
 
-@php $teste= [] @endphp
-@isset($teste)
-    @forelse($teste as $indice => $fornecedor)
+{{-- @php $teste= [] @endphp --}}
+@isset($fornecedores)
+    @forelse($fornecedores as $indice => $fornecedor)
+        <br>
+        Interação atual: {{ $loop->iteration}}
         <br>
         Fornecedor: {{$fornecedor['nome']}}
         <br>
         Status: {{$fornecedor['status']}}
         <br>
         CNPJ: {{$fornecedor['cnpj'] ?? 'não existe'}}
+        <br>
+        @if($loop->first)
+            Primeira interação do loop
+        @endif
+        @if($loop->last)
+            Última interação do loop
+            <br>
+            Total de interações: {{$loop->count}}
+        @endif
         <hr>
     @empty
         Não existem fornecededores cadastrados
