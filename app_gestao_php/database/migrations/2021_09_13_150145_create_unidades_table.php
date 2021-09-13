@@ -21,6 +21,7 @@ class CreateUnidadesTable extends Migration
         });
 
         //adicionar o relacionamento na tabela de produtos e produtos produtos_detalhes
+        //relacionamento de 1:N
         Schema::table('produtos', function(Blueprint $table){
             $table->unsignedBigInteger('unidade_id');
             $table->foreign('unidade_id')->references('id')->on('unidades');
