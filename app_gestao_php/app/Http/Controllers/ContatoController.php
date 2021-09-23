@@ -9,6 +9,11 @@ class ContatoController extends Controller
 {
     public function contato(Request $request)
     {
+        $motivos_de_contatos = [
+            '1' => 'Dúvida',
+            '2' => 'Elogio',
+            '3' => 'Reclmação'
+        ];
         // print_r($request->all());
         // echo  $request->input('name');
 
@@ -24,7 +29,7 @@ class ContatoController extends Controller
 
         //$contato->save();
         
-        return view('site.contato', ['titulo'=>'Contato']);
+        return view('site.contato', ['titulo'=>'Contato', 'motivos_de_contatos' => $motivos_de_contatos]);
     }
 
     public function salvar(Request $request){
