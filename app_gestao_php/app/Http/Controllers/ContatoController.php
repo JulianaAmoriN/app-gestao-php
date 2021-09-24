@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\SiteContato;
 use App\MotivoContato;
+use Illuminate\Support\Facades\Redirect;
 
 class ContatoController extends Controller
 {
@@ -36,9 +37,10 @@ class ContatoController extends Controller
             'name' => 'required | min:2',
             'telefone' => 'required',
             'email' => 'email',
-            'motivo_de_contato' => 'required',
-            'mensage,' => 'required'
+            'motivo_contatos_id' => 'required',
+            'mensagem' => 'required'
         ]);
-        //SiteContato::create($request->all());
+        SiteContato::create($request->all());
+        return redirect()->route('site.index');
     }
 }
