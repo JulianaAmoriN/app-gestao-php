@@ -34,7 +34,7 @@ class ContatoController extends Controller
     public function salvar(Request $request){
         // fazer a validação, antes de enviar
         $request->validate([
-            'name' => 'required | min:2',
+            'name' => 'required | min:2 | unique:site_contatos',
             'telefone' => 'required',
             'email' => 'email',
             'motivo_contatos_id' => 'required',
