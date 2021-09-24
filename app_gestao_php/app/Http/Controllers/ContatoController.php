@@ -4,16 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\SiteContato;
+use App\MotivoContato;
 
 class ContatoController extends Controller
 {
     public function contato(Request $request)
     {
-        $motivos_de_contatos = [
-            '1' => 'Dúvida',
-            '2' => 'Elogio',
-            '3' => 'Reclmação'
-        ];
+        $motivos_de_contatos = MotivoContato::all();
+
         // print_r($request->all());
         // echo  $request->input('name');
 
