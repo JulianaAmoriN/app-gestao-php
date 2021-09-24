@@ -33,13 +33,24 @@ class ContatoController extends Controller
 
     public function salvar(Request $request){
         // fazer a validação, antes de enviar
-        $request->validate([
+
+        $regras = [
             'name' => 'required | min:2 | unique:site_contatos',
             'telefone' => 'required',
             'email' => 'email',
             'motivo_contatos_id' => 'required',
             'mensagem' => 'required'
-        ]);
+        ];
+
+        $feedback = [
+            'name.min' => 'O campo nome precisa ter no mínimo 2 caracteres.',
+            'nome.unique' => 'Este nome já está cadastrado no sistema.',
+            'email.email' => 'Email inválido',        
+            'required' => 'O campo deve ser preenchido.'
+            // :attribute
+        ];
+
+        $request->validate( $regras, $feedback);
         SiteContato::create($request->all());
         return redirect()->route('site.index');
     }
