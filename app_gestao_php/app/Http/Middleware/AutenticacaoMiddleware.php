@@ -14,8 +14,14 @@ class AutenticacaoMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $metodo_autenticacao, $perfil)
     {
+        echo $metodo_autenticacao.'-'.$perfil.'<br>';
+
+        if ($metodo_autenticacao == 'padrao') {
+            echo 'Verificar user e senha. <br>';
+        }
+
         if (false){
             return $next($request);
         } else {
